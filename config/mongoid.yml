@@ -1,0 +1,19 @@
+development:
+  sessions:
+    default:
+      database: sprechen_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
+
+test:
+  sessions:
+    default:
+      database: sprechen_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        max_retries: 1
+        retry_interval: 0
