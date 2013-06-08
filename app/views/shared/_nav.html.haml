@@ -1,0 +1,28 @@
+%ul.nav
+  %li= link_to "Home", "#"
+  - if current_user
+    %li= link_to "Abstracts", "#"
+    %li= link_to "Bio", "#"
+    %li= link_to "Support", "#"
+    %li.dropdown
+      %a.dropdown-toggle{:data => {:toggle => 'dropdown'}}
+        Account
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          = link_to 'Preferences', edit_registration_path(current_user)
+        %li
+          = link_to 'Upgrade Account', edit_membership_path(current_user)
+        %li.divider
+        %li
+          = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+
+    - if current_user.admin?
+      %li.dropdown
+        %a.dropdown-toggle{:data => {:toggle => 'dropdown'}}
+          Admin
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to "FOO", "#"
+          %li= link_to "FOO", "#"
+          %li= link_to "FOO", "#"

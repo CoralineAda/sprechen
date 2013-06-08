@@ -1,0 +1,36 @@
+@import "elements.less";
+
+body {
+  padding: 60px 2em 2em 2em;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bubble {
+  position: relative;
+  margin-bottom: 4em;
+  padding: 2em;
+  .gradient(#333, #aaa, #fff);
+  .drop-shadow(0, 5px, 10px, 0.5);
+  border-radius: 20px;
+}
+
+.right_speech {
+  background: url('/assets/speech_right.png') no-repeat;
+  position: absolute;
+  bottom: -41px;
+  right: 0px;
+  width: 83px;
+  height: 50px;
+}
+
+.left_speech {
+  background: url('/assets/speech_left.png') no-repeat;
+  position: absolute;
+  left: 0px;
+  bottom: -41px;
+  width: 83px;
+  height: 50px;
+}
+

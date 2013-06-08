@@ -1,0 +1,10 @@
+- flash.each do |key, message|
+  %div{:class => "#{flash_class(key)} fade in"}
+    %button.close{:data => {:dismiss => 'alert'}}
+      %i.icon-remove-sign
+    = message
+- if defined?(resource) && ! devise_error_messages!.blank?
+  .alert.alert-error
+    %button.close{:data => {:dismiss => 'alert'}}
+      %i.icon-remove-sign
+    = devise_error_messages!
