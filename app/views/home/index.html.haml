@@ -1,15 +1,27 @@
 .bubble.span6
-  %h2
+  %h2.inner_shadow
     Heading
 
   %p
     Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site.
   .left_speech
 
-.bubble.span6
-  %h2
-    Heading 2
+.span6
+  .well
+    %h2
+      Have an Account?
 
-  %p
-    Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site.
-  .right_speech
+      = form_for(User.new, :url => session_path(:user), :class => 'form-inline') do |f|
+        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
+        = f.password_field :password, :placeholder => 'Password', :class => 'input-medium'
+        .pull-right
+          = f.submit "Sign in", :class => 'btn btn-primary'
+  .well
+    %h2
+      New Around Here?
+
+      = form_for(User.new, :url => session_path(:user), :class => 'form-inline') do |f|
+        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
+        = f.password_field :password, :placeholder => 'Password', :class => 'input-medium'
+        .pull-right
+          = f.submit "Sign in", :class => 'btn btn-primary'
