@@ -1,9 +1,13 @@
 .bubble.span6
   %h2.inner_shadow
-    Heading
+    Share Your Passion
 
   %p
-    Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site.
+    You're smart and well-spoken, and you're ready to get out there and share what you've learned with others in the community. Great!
+  %p
+    But it can be hard to keep track of all of your talks, proposals, and submissions. That's where Sprechen.Me comes in.
+  %p
+    Leave the organizing and tracking to us, so that you can focus on content and creativity.
   .left_speech
 
 - if current_user
@@ -11,7 +15,11 @@
     .well
       %h2 Let's do stuff!
       %p
-        Glad to have you here, #{current_user.first_name}.
+        Glad to have you here, #{current_user.first_name}. Check out your
+        = link_to 'dashboard', dashboard_path(current_user)
+        for your latest stats, or explore
+        = link_to 'upcoming conferences', "#"
+        that you may be interested in!
 - else
   .span6
     .well
