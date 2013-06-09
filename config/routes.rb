@@ -1,6 +1,6 @@
 Sprechen::Application.routes.draw do
 
-  devise_for :users
+  get '/auth/:provider/callback' => "sessions#create"
 
   root :to => 'home#index'
 

@@ -6,22 +6,18 @@
     Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site. Here's where I explain what's going on with this site.
   .left_speech
 
-.span6
-  .well
-    %h2
-      Have an Account?
-
-      = form_for(User.new, :url => session_path(:user), :class => 'form-inline') do |f|
-        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
-        = f.password_field :password, :placeholder => 'Password', :class => 'input-medium'
-        .pull-right
-          = f.submit "Sign in", :class => 'btn btn-primary'
-  .well
-    %h2
-      New Around Here?
-
-      = form_for(User.new, :url => session_path(:user), :class => 'form-inline') do |f|
-        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
-        = f.password_field :password, :placeholder => 'Password', :class => 'input-medium'
-        .pull-right
-          = f.submit "Sign in", :class => 'btn btn-primary'
+- if current_user
+  .span6
+    .well
+      %h2 Let's do stuff!
+      %p
+        Glad to have you here, #{current_user.first_name}.
+- else
+  .span6
+    .well
+      %h2
+        Sign in to get started!
+      Sign in with
+      = link_to 'Github', 'auth/github'
+      or
+      = link_to 'Twitter', 'auth/twitter'

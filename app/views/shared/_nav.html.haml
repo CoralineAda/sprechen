@@ -1,6 +1,6 @@
 %ul.nav
   %li= link_to "Home", "#"
-  - if current_user
+  - if @current_user
     %li= link_to "Abstracts", "#"
     %li= link_to "Bio", "#"
     %li= link_to "Support", "#"
@@ -17,7 +17,7 @@
         %li
           = link_to 'Sign Out', destroy_user_session_path, :method => :delete
 
-    - if current_user.admin?
+    - if @current_user.admin?
       %li.dropdown
         %a.dropdown-toggle{:data => {:toggle => 'dropdown'}}
           Admin

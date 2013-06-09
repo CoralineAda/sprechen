@@ -2,13 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails'
 
+gem 'dotenv'
 gem 'bson_ext'
-gem 'devise'
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem "mongo_session_store-rails3"
 gem 'mongoid'
-gem "omniauth-oauth", "~> 1.0.1"
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
 gem 'jquery-datatables-rails'
 gem 'twitter-bootstrap-rails'
 
