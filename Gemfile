@@ -10,6 +10,7 @@ gem 'jquery-ui-rails'
 gem "mongo_session_store-rails3"
 gem 'mongoid'
 gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'jquery-datatables-rails'
