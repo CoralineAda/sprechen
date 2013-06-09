@@ -15,6 +15,11 @@ class Conference
   field :email
   field :homepage
 
+  belongs_to :user
   has_many :proposals
+
+  def self.upcoming
+    where(:start_date.gt => Date.today.end_of_day)
+  end
 
 end

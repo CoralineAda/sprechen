@@ -10,6 +10,11 @@ class User
   field :avatar
   field :is_admin, :type => Boolean, :default => false
 
+  has_many :bios
+  has_many :conferences
+  has_many :proposals
+  has_many :talks
+
   # Class methods ==============================================================
 
   def self.for_omniauth(auth)

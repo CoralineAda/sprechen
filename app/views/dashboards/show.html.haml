@@ -1,7 +1,23 @@
-.span6
-  Stuff here.
+.span12
+  .span4
+    %h2.bordered Submitted
+    - @dashboard.submitted_talks.each do |proposal|
+      .clickable.well.single_spaced{:data => {:url => '#foo'}}
+        = formatted_proposal(proposal).html_safe
 
-.bubble.span6
+  .span4
+    %h2.bordered Accepted
+    - @dashboard.accepted_talks.each do |proposal|
+      .clickable.well.single_spaced{:data => {:url => '#foo'}}
+        = formatted_proposal(proposal).html_safe
+
+  .span4
+    %h2.bordered Upcoming
+    - @dashboard.upcoming_conferences.each do |conference|
+      .clickable.well.single_spaced{:data => {:url => '#foo'}}
+        = formatted_conference(conference).html_safe
+
+.bubble.span12
   %h2.inner_shadow
     Let's Get Started!
   %p
@@ -15,3 +31,4 @@
     There's a lot more that you'll be able to do later, but let's start simple.
 
   .right_speech
+

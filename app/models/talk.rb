@@ -7,7 +7,7 @@ class Talk
   field :deck_location
 
   belongs_to  :user
-  has_and_belongs_to_many  :proposals
-  has_one     :abstract
+  has_many  :proposals
+  has_many  :abstracts
 
 end

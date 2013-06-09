@@ -1,4 +1,7 @@
 %ul.nav
   - if current_user
-    %li= link_to "My Dashboard", dashboard_path(current_user)
+    %li= link_to "Dashboard", dashboard_path(current_user)
+    %li= link_to "Bio", "#"
+    %li= link_to "Talks", "#"
+    %li= link_to "Conferences", "#"
     %li= link_to "Sign Out", sign_out_path

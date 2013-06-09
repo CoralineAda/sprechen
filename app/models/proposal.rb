@@ -8,9 +8,13 @@ class Proposal
   field :accepted,     :type => Boolean
 
   belongs_to :conference
-  has_one :talk
+  belongs_to :talk
+  belongs_to :user
   has_one :bio
   has_one :abstract
+
+  scope :accepted,  where(:accepted => true)
+  scope :submitted, excludes(:submitted_at => nil)
 
   def presented?
     self.presented_at.present?
