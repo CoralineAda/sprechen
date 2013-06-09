@@ -11,11 +11,11 @@ class Dashboard
   end
 
   def submitted_talks
-    user.proposals.submitted
+    user.proposals.awaiting_approval
   end
 
   def upcoming_conferences
-    user.conferences.upcoming
+    user.conferences.todo
   end
 
   def user

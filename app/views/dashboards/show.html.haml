@@ -1,34 +1,69 @@
-.span12
-  .span4
-    %h2.bordered Submitted
-    - @dashboard.submitted_talks.each do |proposal|
-      .clickable.well.single_spaced{:data => {:url => '#foo'}}
-        = formatted_proposal(proposal).html_safe
+.row-fluid
+  .span12
+    .bubble
+      %h2.inner_shadow
+        Let's Get Started!
+      %p
+        Looks like you're new here, so let me give you a quick overview:
+      .indented
+        %i.icon-ok
+        Create a bio describing how awesome you are.
+      .indented
+        %i.icon-star
+        Write the abstract for a talk on a topic that you are passionate about.
+      .indented
+        %i.icon-star
+        Add a conference and select the talk that you plan on submitting.
+      .indented
+        %i.icon-star
+        When your amazing proposal is accepted, come back here and check it off!
+      %p
+        There's a lot more that you'll be able to do later, but let's start simple.
 
-  .span4
-    %h2.bordered Accepted
-    - @dashboard.accepted_talks.each do |proposal|
-      .clickable.well.single_spaced{:data => {:url => '#foo'}}
-        = formatted_proposal(proposal).html_safe
+      .left_speech
 
-  .span4
-    %h2.bordered Upcoming
-    - @dashboard.upcoming_conferences.each do |conference|
-      .clickable.well.single_spaced{:data => {:url => '#foo'}}
-        = formatted_conference(conference).html_safe
+.row-fluid
+  .span12
 
-.bubble.span12
-  %h2.inner_shadow
-    Let's Get Started!
-  %p
-    Looks like you're new here, so let me give you a quick overview:
-  %ul
-    %li Start by creating a bio, describing how awesome you are.
-    %li Next, add a talk on any topic that you are passionate about.
-    %li Finally, add a conference and select the talk that you plan on submitting.
-    %li When your amazing proposal is accepted, come back here and check it off!
-  %p
-    There's a lot more that you'll be able to do later, but let's start simple.
+    .span4
+      %h2.bordered Upcoming
+      - if @dashboard.upcoming_conferences.empty?
+        .well.single_spaced.short
+          You have no upcoming conferences with open RFPs.
+      - @dashboard.upcoming_conferences.each do |conference|
+        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
+          = formatted_conference(conference).html_safe
+          .pull-right
+            %i.icon-search
+      %a.btn.btn-inverse.centered{:href => "#"}
+        %i.icon-calendar
+        Add a Conference
 
-  .right_speech
+    .span4
+      %h2.bordered Submitted
+      - if @dashboard.submitted_talks.empty?
+        .well.single_spaced.short
+          You have no submitted proposals awaiting approval.
+      - @dashboard.submitted_talks.each do |proposal|
+        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
+          = formatted_proposal(proposal).html_safe
+          .pull-right
+            %i.icon-search
+      %a.btn.btn-inverse{:href => "#"}
+        %i.icon-file
+        Submit a Proposal
+
+    .span4
+      %h2.bordered Accepted
+      - if @dashboard.accepted_talks.empty?
+        .well.single_spaced.short
+          You have no accepted proposals for upcoming conferences.
+      - @dashboard.accepted_talks.each do |proposal|
+        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
+          = formatted_proposal(proposal).html_safe
+          .pull-right
+            %i.icon-search
+      %a.btn.btn-inverse{:href => "#"}
+        %i.icon-folder-open
+        Review Proposals
 

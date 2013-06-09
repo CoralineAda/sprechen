@@ -36,4 +36,8 @@ class User
     self.name.split.first
   end
 
+  def slug
+    self.name.gsub(" ","").downcase
+  end
+
 end

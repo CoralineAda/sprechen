@@ -22,4 +22,8 @@ class Conference
     where(:start_date.gt => Date.today.end_of_day)
   end
 
+  def self.todo
+    upcoming.select{|conf| conf.proposals.empty? }
+  end
+
 end

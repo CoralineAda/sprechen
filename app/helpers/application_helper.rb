@@ -10,10 +10,13 @@ module ApplicationHelper
   end
 
   def formatted_conference(conference)
-    %{
-      #{conference.name} in #{conference.city}, #{conference.state}<br />
-      #{conference.start_date} - #{conference.end_date}
-    }
+    text = "#{conference.name}"
+    text << " in #{conference.city}" if conference.city
+    text << ", #{conference.state}" if conference.city && conference.state
+    text << "<br />"
+    text << conference.start_date.to_s(:concise)
+    text << "- #{conference.end_date.to_s(:concise)}" if conference.end_date
+    text
   end
 
   def formatted_proposal(proposal)

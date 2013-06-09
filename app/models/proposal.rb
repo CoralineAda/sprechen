@@ -14,7 +14,12 @@ class Proposal
   has_one :abstract
 
   scope :accepted,  where(:accepted => true)
+  scope :rejected,  where(:accepted => false)
   scope :submitted, excludes(:submitted_at => nil)
+
+  def self.awaiting_approval
+    submitted.where(:accepted => nil)
+  end
 
   def presented?
     self.presented_at.present?
