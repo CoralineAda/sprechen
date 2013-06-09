@@ -8,6 +8,7 @@ class User
   field :provider
   field :uid
   field :avatar_url
+  field :is_admin, :type => Boolean, :default => false
 
   # Class methods ==============================================================
 

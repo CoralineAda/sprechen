@@ -1,15 +1,20 @@
 class SessionsController < ApplicationController
 
   def create
-    handle_success if user.persisted?
-    handle_failure
+    user.persisted? ? handle_success : handle_failure
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "You've signed out."
+    redirect_to root_url
   end
 
   private
 
   def handle_success
     flash[:notice] = "Signed in! Welcome."
-    session[:user] = @user
+    session[:user_id] = user.id
     redirect_to root_url
   end
 
@@ -23,7 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def user
-    session[:user] ||= User.for_omniauth(request.env["omniauth.auth"])
+    @user ||= User.for_omniauth(request.env["omniauth.auth"])
   end
 
 end
