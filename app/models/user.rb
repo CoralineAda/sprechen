@@ -7,7 +7,7 @@ class User
   field :email
   field :provider
   field :uid
-  field :avatar_url
+  field :avatar
   field :is_admin, :type => Boolean, :default => false
 
   # Class methods ==============================================================
@@ -21,7 +21,7 @@ class User
       user.provider   = auth['provider']
       user.uid        = auth['uid']
       user.name       = auth['info']['name']
-      user.avatar_url = auth['info']['image']
+      user.avatar     = auth['info']['image']
     end
   end
 
