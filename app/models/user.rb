@@ -36,6 +36,26 @@ class User
     self.name.split.first
   end
 
+  def just_getting_started?
+    return true unless has_bio? && has_talks? && has_conferences?
+  end
+
+  def has_bio?
+    self.bios.count > 0
+  end
+
+  def has_talks?
+    self.talks.count > 0
+  end
+
+  def has_conferences?
+    self.conferences.count > 0
+  end
+
+  def has_accepted_proposals?
+    self.proposals.accepted.count > 0
+  end
+
   def slug
     self.name.gsub(" ","").downcase
   end

@@ -26,4 +26,8 @@ module ApplicationHelper
     }
   end
 
+  def icon_for(user, attribute)
+    user.send("has_#{attribute.to_s}?") ? 'icon-ok' : 'icon-star'
+  end
+
 end
