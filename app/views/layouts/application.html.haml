@@ -19,7 +19,7 @@
     .container
       .navbar.navbar-fixed-top.navbar-inverse
         .navbar-inner
-          %a.brand(href="/") Sprechen.Me!
+          %a.brand(href="/") Sprechen.Me
           .nav-collapse.collapse
             = render 'shared/nav'
           %button.btn.btn-navbar{:data => {:target => ".nav-collapse", :toggle => "collapse"}}
@@ -28,8 +28,11 @@
             %span.icon-bar
 
     .container-fluid
-      .span12
-        = render :partial => 'shared/flash', :object => flash
+      - if flash.present?
+        .span12
+          = render :partial => 'shared/flash', :object => flash
+        %br.clear
+
       = yield
 
       %footer

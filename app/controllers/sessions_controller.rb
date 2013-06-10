@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   def handle_success
     flash[:notice] = "Signed in! Welcome."
     session[:user_id] = user.id
-    redirect_to dashboard_url(current_user)
+    redirect_to speaker_dashboard_url(current_user.slug)
   end
 
   def handle_failure
