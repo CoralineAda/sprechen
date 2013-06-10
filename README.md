@@ -1,10 +1,11 @@
 Sprechen.Me
 ===========
 
-A resource for active conference speakers.
+A resource for active conference speakers that helps manage bios, talks, proposals, and conferences.
 
 #### To Do
 
+* Titles
 * UI for creating bio
 * UI for creating talk
 * UI for creating conference

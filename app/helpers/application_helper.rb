@@ -9,6 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def formatted_bio(bio)
+    text = "<em>#{bio.label}</em><br />"
+    text << bio.content.to_s
+    text.html_safe
+  end
+
   def formatted_conference(conference)
     text = "#{conference.name}"
     text << " in #{conference.city}" if conference.city
@@ -16,14 +22,14 @@ module ApplicationHelper
     text << "<br />"
     text << conference.start_date.to_s(:concise)
     text << "- #{conference.end_date.to_s(:concise)}" if conference.end_date
-    text
+    text.html_safe
   end
 
   def formatted_proposal(proposal)
     %{
       <em>#{proposal.talk.title}</em><br />
       #{formatted_conference(proposal.conference)}
-    }
+    }.html_safe
   end
 
   def icon_for(user, attribute)

@@ -4,11 +4,9 @@ Sprechen::Application.routes.draw do
 
   match '/sign_out' => "sessions#destroy", :as => 'sign_out'
 
-  resources :users, :path => '/speakers/' do
-    member do
-      resource :dashboard
-      resources :bios
-    end
+  namespace :speaker, :path => 'speaker/:user/' do
+    resource :dashboard
+    resources :bios
   end
 
   root :to => 'home#index'

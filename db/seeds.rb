@@ -1,3 +1,4 @@
+Bio.delete_all
 Conference.delete_all
 Talk.delete_all
 Abstract.delete_all
@@ -6,7 +7,8 @@ Proposal.delete_all
 user = User.first || User.create(:name => 'Sylvester Stallone')
 
 user.bios.create(
-  :text => 'A truly bad actor',
+  :label => 'Default',
+  :content => 'A truly bad actor',
   :photo => 'http://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Flickr_-_nicogenin_-_66me_Festival_de_Venise_(Mostra)_-_Sylvester_Stallone_(26).jpg/220px-Flickr_-_nicogenin_-_66me_Festival_de_Venise_(Mostra)_-_Sylvester_Stallone_(26).jpg'
 )
 

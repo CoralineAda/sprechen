@@ -1,4 +1,4 @@
-class DashboardsController < ApplicationController
+class Speaker::DashboardsController < ApplicationController
 
   def show
     redirect_to root_path unless session[:user_id]
