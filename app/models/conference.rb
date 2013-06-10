@@ -26,4 +26,8 @@ class Conference
     upcoming.select{|conf| conf.proposals.empty? }
   end
 
+  def end_date
+    self[:end_date] || self.start_date || Date.today
+  end
+
 end

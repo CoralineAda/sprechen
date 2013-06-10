@@ -1,0 +1,57 @@
+@import "variables";
+
+.stat-block {
+  .header {
+    border: 2px solid #333;
+    border-radius: 5px 5px 0px 0px;
+    color: #444;
+    padding: .5em;
+    line-height: 1em;
+  }
+  .body {
+    border: 2px solid #333;
+    border-radius: 0px 0px 5px 5px;
+    padding: .5em .5em .5em .5em;
+    margin-bottom: 1em;
+  }
+  h2 {
+    font-family: @buttonFontFamily;
+    font-size: @baseFontSize;
+    line-height: 1em;
+    font-weight: bold;
+    color: #000;
+  }
+  hr {
+    margin: 1em -.5em 1em -.5em;
+    border-bottom: 1px solid #000;
+  }
+}
+
+.stat{
+  float: left;
+  text-align: left;
+  width: 100%;
+  .stat-label {
+    padding: 0em .5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: @buttonFontFamily;
+    font-size: 11px;
+    color: #333333;
+  }
+  .stat-content {
+    padding: .25em .5em;
+    margin-left: .5em;
+    line-height: 1.5em;
+    min-height: 3em;
+    font-size: .9em;
+    font-weight: normal;
+    a:link, a:visited {
+      color: #ffffff !important;
+    }
+  }
+  .stat-content.double-height {
+    height: 9.5em;
+  }
+
+}

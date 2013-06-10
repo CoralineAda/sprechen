@@ -10,4 +10,12 @@ class Talk
   has_many  :proposals
   has_many  :abstracts
 
+  def has_details?
+    self.deck_location || self.abstracts.first
+  end
+
+  def history
+    TalkHistory.new(self.id)
+  end
+
 end

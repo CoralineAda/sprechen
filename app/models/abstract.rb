@@ -9,4 +9,8 @@ class Abstract
   belongs_to :proposal
   belongs_to :talk
 
+  def summary
+    self[:summary] || self.full_text.to_s.truncate(200)
+  end
+
 end

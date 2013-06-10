@@ -1,0 +1,24 @@
+.well.form
+  = f.hidden_field :user_id, :value => current_user.id
+  = fields_for @abstract do |ff|
+    = ff.hidden_field :id, :value => @abstract.id
+    .span4
+      = f.label :title
+      = f.text_field :title, :style => 'width: 90%;'
+      = f.label :deck_location, "Deck URL"
+      = f.text_field :deck_location, :style => 'width: 90%;'
+      = ff.label :summary
+      = ff.text_area :summary, :style => 'width: 90%; height: 7em;'
+    .span6
+      = ff.label :full_text, "Full Description"
+      = ff.text_area :full_text, :style => 'width: 100%; height: 18em;'
+
+  %br.clear
+= f.submit "Save", :class => 'btn btn-primary'
+= link_to "Cancel", :back, :class => 'btn'
+
+- if @talk.persisted?
+  .pull-right
+    = link_to speaker_talk_path(current_user.slug, @talk.id), :method => :delete, :class => 'btn btn-danger', :confirm => 'Are you sure?' do
+      %i.icon-trash
+      Delete

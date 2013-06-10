@@ -1,0 +1,22 @@
+%a.pull-right.btn.btn-inverse{:href => "#{new_speaker_talk_path(current_user.slug)}", :style => 'margin-top: 1em;'}
+  %i.icon-user
+  Add a Talk
+
+%h2.bordered
+  Your Talks
+
+- if @talks.count < 2
+
+  .bubble
+    %h2
+      Speak Up!
+    %p
+      What are you passionate about? What learning experiences have you had that you would like to share with the world? You certainly have something to share with the world, so what will your next talk be about?
+    .left_speech
+
+- @talks.in_groups(3, false).each do |group|
+  .row-fluid
+    - group.each do |talk|
+      .clickable.span4.well.medium.single_spaced{:data => {:url => "#{speaker_talk_path(current_user.slug, talk)}"}}
+        = formatted_talk(talk).html_safe
+

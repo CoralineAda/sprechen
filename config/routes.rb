@@ -7,6 +7,7 @@ Sprechen::Application.routes.draw do
   namespace :speaker, :path => 'speaker/:user/' do
     resource :dashboard
     resources :bios
+    resources :talks
   end
 
   root :to => 'home#index'

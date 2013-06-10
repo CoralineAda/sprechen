@@ -3,9 +3,9 @@ class Proposal
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :submitted_at, :type => Date
-  field :presented_at, :type => Date
-  field :accepted,     :type => Boolean
+  field :submitted_at,      :type => Date
+  field :accepted,          :type => Boolean
+  field :status_updated_at, :type => Date
 
   belongs_to :conference
   belongs_to :talk
@@ -21,8 +21,16 @@ class Proposal
     submitted.where(:accepted => nil)
   end
 
+  def accepted?
+    self.accepted
+  end
+
+  def rejected?
+    self.accepted.present? && ! self.accepted
+  end
+
   def presented?
-    self.presented_at.present?
+    self.conference.end_date < Date.today
   end
 
 end

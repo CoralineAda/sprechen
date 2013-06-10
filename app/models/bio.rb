@@ -8,5 +8,6 @@ class Bio
   field :photo
 
   belongs_to :user
+  belongs_to :proposal
 
 end

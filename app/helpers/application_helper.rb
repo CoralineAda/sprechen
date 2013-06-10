@@ -32,8 +32,20 @@ module ApplicationHelper
     }.html_safe
   end
 
+  def formatted_talk(talk)
+    text = "<em>#{talk.title}</em><br />"
+    text << "<span class='meta'>#{talk.updated_at.to_s(:concise)}</span>"
+    text << "<br /><br />"
+    text << talk.abstracts.first.summary.truncate(100) if talk.abstracts.present?
+    text.html_safe
+  end
+
   def icon_for(user, attribute)
     user.send("has_#{attribute.to_s}?") ? 'icon-ok' : 'icon-star'
+  end
+
+  def stat_block(header, body, args={})
+    %{<div class="stat"><div class="stat-label">#{header}</div><div class="stat-content well #{args[:class]}">#{body}</div></div>}.html_safe
   end
 
 end
