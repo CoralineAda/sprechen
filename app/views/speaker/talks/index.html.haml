@@ -14,9 +14,44 @@
       What are you passionate about? What learning experiences have you had that you would like to share with the world? You certainly have something to share with the world, so what will your next talk be about?
     .left_speech
 
-- @talks.in_groups(3, false).each do |group|
-  .row-fluid
-    - group.each do |talk|
-      .clickable.span4.well.medium.single_spaced{:data => {:url => "#{speaker_talk_path(current_user.slug, talk)}"}}
+.row
+  .span9
+    .btn-group
+      %button.btn.filter{:data => {:filter => 'mix'}}
+        All
+      %button.btn.filter{:data => {:filter => 'recent'}}
+        Newest
+      %button.btn.filter{:data => {:filter => 'updated'}}
+        Updated
+      %button.btn.filter{:data => {:filter => 'active'}}
+        Active
+      %button.btn.filter{:data => {:filter => 'archived'}}
+        Archived
+      %button.btn.filter{:data => {:filter => 'unsubmitted'}}
+        Unsubmitted
+      %button.btn.filter{:data => {:filter => 'submitted'}}
+        Submitted
+      %button.btn.filter{:data => {:filter => 'accepted'}}
+        Accepted
+      %button.btn.filter{:data => {:filter => 'rejected'}}
+        Rejected
+
+  .span3
+    .btn-group
+      %button.btn.sort{:data => {:sort => 'data-name', :order => "asc"}}
+        By Name
+      %button.btn.sort{:data => {:sort => 'data-date', :order => "asc"}}
+        By Date
+
+%br
+
+.row
+  #Grid.span12
+    - @talks.each do |talk|
+      %li{:class => "#{(['mix', 'clickable', 'three_span', 'well', 'medium', 'single_spaced'] | talk.tags) * ' '}", :data => {:name => talk.title, :date => talk.updated_at.to_s(:concise), :url => "#{speaker_talk_path(current_user.slug, talk)}"}}
         = formatted_talk(talk).html_safe
 
+%br.clear
+
+= content_for :javascript do
+  $(function(){ $('#Grid').mixitup({showOnLoad: 'all', sortOnLoad: 'data-name', multiFilter: false, filterLogic: 'and'}); });

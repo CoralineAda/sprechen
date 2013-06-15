@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require mixitup/jquery.mixitup.min
 //= require_tree .
 

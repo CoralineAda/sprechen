@@ -7,7 +7,7 @@ class User
   field :email
   field :provider
   field :uid
-  field :avatar
+  field :avatar_url
   field :is_admin, :type => Boolean, :default => false
 
   has_many :bios
