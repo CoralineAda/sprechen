@@ -11,13 +11,12 @@
       - if @bios.empty?
         %h2.bordered Add a Bio
       - else
-        %h2.bordered Bios
         - @bios.each do |bio|
           .clickable.well.short.single_spaced{:data => {:url => "#{edit_speaker_bio_path(current_user.slug, bio)}"}}
             - if bio.photo
               .pull-right
                 = image_tag bio.photo, :class => :avatar
             = formatted_bio(bio).html_safe
-      %a.btn.btn-inverse{:href => "#{new_speaker_bio_path(current_user.slug)}"}
+      %a.pull-right.btn.btn-inverse{:href => "#{new_speaker_bio_path(current_user.slug)}"}
         %i.icon-user
         Add a Bio
