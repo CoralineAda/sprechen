@@ -29,6 +29,13 @@
             Get started!
           %p
             Choose your sign in method:
-          = link_to image_tag('/assets/icons/github.png'), 'auth/github'
-          = link_to image_tag('/assets/icons/twitter.png'), 'auth/twitter'
-          = link_to image_tag('/assets/icons/facebook.png'), 'auth/facebook'
+          .sign_in_icon
+            = link_to image_tag('/assets/icons/github_black.png'), 'auth/github'
+            = link_to "GitHub", 'auth/github'
+          .sign_in_icon
+            = link_to image_tag('/assets/icons/twitter_black.png'), 'auth/twitter'
+            = link_to "Twitter", 'auth/twitter'
+          .sign_in_icon
+            = link_to image_tag('/assets/icons/facebook_black.png'), 'auth/facebook'
+            = link_to "Facebook", 'auth/facebook'
+          %br.clear
