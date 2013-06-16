@@ -37,13 +37,8 @@ class Speaker::TalksController < ApplicationController
   private
 
   def scope_abstract
-    if params[:abstract] && params[:abstract][:id]
-      @abstract = @talk.abstracts.find(params[:abstract][:id])
-    elsif params[:abstract].present?
-      @abstract = @talk.abstracts.build(params[:abstract])
-    end
-    @abstract ||= @talk.abstracts.first
-    @abstract ||= @talk.abstracts.build
+    @abstract = params[:abstract].present? && params[:abstract][:id].present? && @talk.abstracts.where(params[:abstract][:id]).first
+    @abstract = @talk.abstracts.build(params[:abstract])
   end
 
 end

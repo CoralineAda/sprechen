@@ -16,8 +16,9 @@
 
 .row
   .span8
-    %label Filter:
     .btn-group
+      %button.btn.inactive
+        %i.icon-th
       %button.btn.filter{:data => {:filter => 'mix'}}
         All
       %button.btn.filter{:data => {:filter => 'recent'}}
@@ -39,8 +40,9 @@
 
   .span4
     .pull-right
-      %label Sort:
       .btn-group
+        %button.btn.inactive
+          %i.icon-sort
         %button.btn.sort{:data => {:sort => 'data-name', :order => "desc"}}
           By Name
         %button.btn.sort{:data => {:sort => 'data-date', :order => "asc"}}
