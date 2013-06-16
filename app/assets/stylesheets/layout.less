@@ -43,13 +43,11 @@ body {
   .drop-shadow(0, 5px, 10px, 1.0);
 }
 
-.well.clickable {
+.clickable {
   cursor: pointer;
-  margin-left: 0px;
-  margin-right: 1em;
 }
 
-.clickable:hover {
+.clickable div:hover {
   background: #666;
 }
 
@@ -59,6 +57,10 @@ body {
 
 .medium {
   min-height: 12em !important;
+}
+
+.small {
+  min-height: 9em !important;
 }
 
 footer {
@@ -89,6 +91,11 @@ footer {
 
 .sign_in_icon img {
   opacity: 0.25;
+  height: 120px;
+}
+
+.sign_in_icon:hover img {
+  opacity: 1.0;
   height: 120px;
 }
 

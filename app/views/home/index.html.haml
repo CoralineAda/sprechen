@@ -7,7 +7,9 @@
       %p
         You're smart and well-spoken, and you're ready to get out there and share what you've learned with others in the community. Great!
       %p
-        But it can be hard to keep track of all of your talks, proposals, and submissions. That's where Sprechen.Me comes in.
+        But it can be hard to keep track of all of your talks, proposals, and submissions. That's where
+        %em Sprechen.me
+        comes in.
       %p
         Leave the organizing and tracking to us, so that you can focus on content and creativity.
       .left_speech
@@ -31,11 +33,18 @@
             Choose your sign in method:
           .sign_in_icon
             = link_to image_tag('/assets/icons/github_black.png'), 'auth/github'
-            = link_to "GitHub", 'auth/github', :class => 'btn top-margin'
+            = link_to 'auth/github', :class => 'btn top-margin' do
+              Github
+              %i.icon-circle-arrow-right
           .sign_in_icon
             = link_to image_tag('/assets/icons/twitter_black.png'), 'auth/twitter'
-            = link_to "Twitter", 'auth/twitter', :class => 'btn top-margin'
+            = link_to 'auth/twitter', :class => 'btn top-margin' do
+              Twitter
+              %i.icon-circle-arrow-right
           .sign_in_icon
             = link_to image_tag('/assets/icons/facebook_black.png'), 'auth/facebook'
-            = link_to "Facebook", 'auth/facebook', :class => 'btn top-margin'
+            = link_to 'auth/facebook', :class => 'btn top-margin' do
+              Facebook
+              %i.icon-circle-arrow-right
+
           %br.clear

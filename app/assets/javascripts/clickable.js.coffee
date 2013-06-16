@@ -1,5 +1,6 @@
 $(".clickable").click ->
-  window.location = $(this).data('url')
+  url = $(this).data('url')
+  alert(url)
 
 $(".closable").click ->
   $(this).fadeOut();
@@ -7,4 +8,4 @@ $(".closable").click ->
 showFlash = ->
   $("#flash").slideDown(500).delay(1000).slideUp(500)
 
-showFlash()  if $("#flash")
+showFlash() if $("#flash")

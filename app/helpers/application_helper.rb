@@ -23,12 +23,12 @@ module ApplicationHelper
     }.html_safe
   end
 
-  def formatted_talk(talk)
-    text = "<em>#{talk.title}</em><br />"
-    text << "<span class='meta'>#{talk.updated_at.to_s(:concise)}</span>"
-    text << "<br /><br />"
-    text << talk.abstracts.first.summary.truncate(100) if talk.abstracts.present?
-    text.html_safe
+  def formatted_talk(talk, url)
+    %{
+      <h4><a href="#{url}">#{talk.title}</a></h4>
+      <div class='meta'>#{talk.updated_at.to_s(:concise)}</div>
+      <blockquote>#{talk.abstracts.first.summary.truncate(150) if talk.abstracts.present?}</blockquote>
+    }.html_safe
   end
 
   def icon_for(user, attribute)

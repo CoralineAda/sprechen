@@ -15,7 +15,8 @@
     .left_speech
 
 .row
-  .span9
+  .span8
+    %label Filter:
     .btn-group
       %button.btn.filter{:data => {:filter => 'mix'}}
         All
@@ -36,22 +37,31 @@
       %button.btn.filter{:data => {:filter => 'rejected'}}
         Rejected
 
-  .span3
-    .btn-group
-      %button.btn.sort{:data => {:sort => 'data-name', :order => "asc"}}
-        By Name
-      %button.btn.sort{:data => {:sort => 'data-date', :order => "asc"}}
-        By Date
+  .span4
+    .pull-right
+      %label Sort:
+      .btn-group
+        %button.btn.sort{:data => {:sort => 'data-name', :order => "desc"}}
+          By Name
+        %button.btn.sort{:data => {:sort => 'data-date', :order => "asc"}}
+          By Date
 
 %br
 
 .row
-  #Grid.span12
+  #Grid
     - @talks.each do |talk|
-      %li{:class => "#{(['mix', 'clickable', 'three_span', 'well', 'medium', 'single_spaced'] | talk.tags) * ' '}", :data => {:name => talk.title, :date => talk.updated_at.to_s(:concise), :url => "#{speaker_talk_path(current_user.slug, talk)}"}}
-        = formatted_talk(talk).html_safe
+      %div{:class => "#{(['talk', 'mix', 'three_span', 'well', 'small', 'single_spaced'] | talk.tags) * ' '}", :data => {:name => talk.title, :date => talk.updated_at.to_s(:concise)}}
+        = formatted_talk(talk, speaker_talk_path(current_user.slug, talk))
+        .controls
+          = link_to speaker_talk_path(current_user.slug, talk), :class => 'btn btn-mini' do
+            %i.icon-eye-open
+          = link_to edit_speaker_talk_path(current_user.slug, talk), :class => 'btn btn-mini' do
+            %i.icon-edit
+          = link_to "#", :class => 'btn btn-mini' do
+            %i.icon-bullhorn
 
 %br.clear
 
 = content_for :javascript do
-  $(function(){ $('#Grid').mixitup({showOnLoad: 'all', sortOnLoad: 'data-name', multiFilter: false, filterLogic: 'and'}); });
+  $(function(){ $('#Grid').mixitup({showOnLoad: 'mix', sortOnLoad: 'data-name', multiFilter: false, filterLogic: 'and'}); });
