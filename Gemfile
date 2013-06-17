@@ -14,7 +14,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'jquery-datatables-rails'
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails", ">= 2.2.7"
 
 group :assets do
   gem 'less-rails'

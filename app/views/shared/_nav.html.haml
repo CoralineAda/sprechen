@@ -1,8 +1,8 @@
-- if current_user
-  %ul.nav
-    %li= link_to "Bios", speaker_bios_path
-    %li= link_to "Talks", speaker_talks_path
-    %li= link_to "Proposals", "#"
-    %li= link_to "Conferences", "#"
-    %li= link_to "Sign Out", sign_out_path
-    %li= image_tag current_user.avatar_url, :class => 'avatar'
+= nav_bar(:fixed => :top, :responsive => true, :brand => branding.html_safe) do
+  = menu_group :pull => :right do
+    - if current_user
+      = menu_item "Bios", speaker_bios_path
+      = menu_item "Talks", speaker_talks_path
+      = menu_item "Proposals", "#"
+      = menu_item "Conferences", "#"
+      = menu_item "Sign Out", sign_out_path

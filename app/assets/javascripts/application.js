@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//- require twitter/boostrap
 //= require mixitup/jquery.mixitup.min
 //= require_tree .
 

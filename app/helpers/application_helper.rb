@@ -25,10 +25,17 @@ module ApplicationHelper
 
   def formatted_talk(talk, url)
     %{
-      <h4><a href="#{url}">#{talk.title.truncate(65)}</a></h4>
+      <h4><a href="#{url}">#{talk.title.truncate(30)}</a></h4>
       <div class='meta'>Updated #{talk.updated_at.to_s(:concise)}</div>
-      <blockquote>#{talk.abstracts.first.summary.truncate(150) if talk.abstracts.present?}</blockquote>
+      <blockquote>#{talk.abstracts.first.summary.truncate(100) if talk.abstracts.present?}</blockquote>
     }.html_safe
+  end
+
+  def branding
+    %{
+        Sprechen.Me
+       <i class='icon-comment' style='margin-top: 0em;'></i>
+    }
   end
 
   def icon_for(user, attribute)

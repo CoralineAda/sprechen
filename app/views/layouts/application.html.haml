@@ -15,18 +15,7 @@
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
   %body
-    .container
-      .navbar.navbar-fixed-top.navbar-inverse
-        .navbar-inner
-          %a.brand(href="/")
-            %i.icon-bullhorn{:style => 'margin-top: .2em; margin-right: .5em;'}
-            Sprechen.Me
-          .nav-collapse.collapse
-            = render 'shared/nav'
-          %button.btn.btn-navbar{:data => {:target => ".nav-collapse", :toggle => "collapse"}}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
+    = render :partial => 'shared/nav'
 
     .container-fluid
       - if flash.present?
