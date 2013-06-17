@@ -25,8 +25,7 @@ module ApplicationHelper
 
   def formatted_talk(talk, url)
     %{
-      <h4><a href="#{url}">#{talk.title.truncate(30)}</a></h4>
-      <div class='meta'>Updated #{talk.updated_at.to_s(:concise)}</div>
+      <h4><a href="#{url}">#{talk.title.truncate(60)}</a></h4>
       <blockquote>#{talk.abstracts.first.summary.truncate(100) if talk.abstracts.present?}</blockquote>
     }.html_safe
   end
