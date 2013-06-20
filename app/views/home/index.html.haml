@@ -31,20 +31,11 @@
             Get started!
           %p
             Choose your sign in method:
-          .sign_in_icon
-            = link_to image_tag('/assets/icons/github_black.png'), 'auth/github'
-            = link_to 'auth/github', :class => 'btn top-margin' do
-              Github
-              %i.icon-circle-arrow-right
-          .sign_in_icon
-            = link_to image_tag('/assets/icons/twitter_black.png'), 'auth/twitter'
-            = link_to 'auth/twitter', :class => 'btn top-margin' do
-              Twitter
-              %i.icon-circle-arrow-right
-          .sign_in_icon
-            = link_to image_tag('/assets/icons/facebook_black.png'), 'auth/facebook'
-            = link_to 'auth/facebook', :class => 'btn top-margin' do
-              Facebook
-              %i.icon-circle-arrow-right
+            .sign_in_icon.pull-left
+              = link_to image_tag('/assets/icons/github_black.png'), 'auth/github'
+            .sign_in_icon.pull-left
+              = link_to image_tag('/assets/icons/twitter_black.png'), 'auth/twitter'
+            .sign_in_icon.pull-left
+              = link_to image_tag('/assets/icons/facebook_black.png'), 'auth/facebook'
 
           %br.clear

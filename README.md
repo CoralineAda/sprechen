@@ -13,7 +13,4 @@ A resource for active conference speakers that helps manage bios, talks, proposa
 * Validations / required fields
 * Integrate with Lanyard topics (feed://lanyrd.com/topics/ruby/feed/)
 * Extract keywords from proposals to find matching conferences...?
-
-
-
-
+* Bookmarklet to scan HTML page for .ics files, upload them to Sprechen
