@@ -16,6 +16,13 @@ module ApplicationHelper
     text.html_safe
   end
 
+  def formatted_event(event)
+    %{
+      <h4><a href="#{event.url}" target="_new">#{event.name}</a></h4>
+      <blockquote>#{event.sanitized_summary.truncate(250)}</blockquote>
+    }.html_safe
+  end
+
   def formatted_proposal(proposal)
     %{
       <em>#{proposal.talk.title}</em><br />

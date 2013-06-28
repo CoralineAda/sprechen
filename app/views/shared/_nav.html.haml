@@ -1,8 +1,8 @@
 = nav_bar(:fixed => :top, :responsive => true, :brand => branding.html_safe) do
   = menu_group :pull => :right do
     - if current_user
-      = menu_item "Bios", speaker_bios_path
-      = menu_item "Talks", speaker_talks_path
+      = menu_item "Bios", speaker_bios_path(current_user)
+      = menu_item "Talks", speaker_talks_path(current_user)
       = menu_item "Conferences", "#"
       = menu_item "Proposals", "#"
       = menu_item "Sign Out", sign_out_path

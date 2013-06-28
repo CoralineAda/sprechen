@@ -6,7 +6,7 @@ development:
         - localhost:27017
       options:
   options:
-
+    allow_dynamic_fields: false
 test:
   sessions:
     default:

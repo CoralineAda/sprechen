@@ -5,6 +5,7 @@ gem 'rails'
 gem 'dotenv'
 gem 'bson_ext'
 gem 'haml'
+gem 'httparty'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "mongo_session_store-rails3"

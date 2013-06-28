@@ -2,8 +2,16 @@ class IcsParser
 
   attr_accessor :event
 
+  def self.entries_from(calendar)
+    calendar.gsub(/^.?BEGIN:VEVENT/, 'BEGIN:VEVENT').split("BEGIN:VEVENT")[1..-1]
+  end
+
   def initialize(ics_file)
     self.event = ics_file.split(/[\n\r]/)
+  end
+
+  def name
+    parse_attr('summary')
   end
 
   def summary
@@ -16,10 +24,6 @@ class IcsParser
 
   def url
     parse_attr('url')
-  end
-
-  def description
-    parse_attr('description')
   end
 
   def start_date
@@ -37,12 +41,12 @@ class IcsParser
 
   def parse!
     {
+      :name => name,
       :summary => summary,
       :location => location,
       :url => url,
-      :description => description,
-      :start_date => Date.parse(start_date),
-      :end_date => Date.parse(end_date)
+      :start_date => Date.parse(start_date.to_s),
+      :end_date => Date.parse(end_date.to_s)
     }
   end
 

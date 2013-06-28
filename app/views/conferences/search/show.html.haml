@@ -1,0 +1,23 @@
+%h2 Find a Conference
+
+= render :partial => 'form'
+
+- if @results.empty?
+
+  %p
+    %b
+      Sorry, no conferences were found. Please alter your keywords and try again.
+
+- else
+
+  #Grid
+    .row-fluid{:style => "margin-top: 1em;"}
+      %section
+        - @results.each do |event|
+          %div{:class => "#{['talk', 'mix', 'span4', 'well', 'medium', 'single_spaced'] * ' '}", :data => {:name => event.name, :date => event.start_date.to_s(:concise)}}
+            = formatted_event(event)
+
+  %br.clear
+
+  = content_for :javascript do
+    $(function(){ $('#Grid').mixitup({showOnLoad: 'mix', sortOnLoad: 'data-name', multiFilter: false, filterLogic: 'and'}); });
