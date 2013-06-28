@@ -5,12 +5,10 @@ A resource for active conference speakers that helps manage bios, talks, proposa
 
 #### To Do
 
-* Titles
-* UI for creating bio
-* UI for creating talk
-* UI for creating conference
+* Page titles
+* Favorite an event to save it to your profile
+* Event show
+* UI for creating event
+* Upload ICS to create event
 * UI for creating proposal
 * Validations / required fields
-* Integrate with Lanyard topics (feed://lanyrd.com/topics/ruby/feed/)
-* Extract keywords from proposals to find matching conferences...?
-* Bookmarklet to scan HTML page for .ics files, upload them to Sprechen
