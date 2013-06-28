@@ -10,12 +10,31 @@
 
 - else
 
+  - if @results.count > 3
+    .btn-group
+      %button.btn.inactive
+        %i.icon-th
+      %button.btn.filter{:data => {:filter => 'mix'}}
+        All
+      - @results.map{|r| r.tags}.flatten.sort.uniq.each do |tag|
+        %button.btn.filter{:data => {:filter => "#{tag}"}}
+          = tag.titleize
+
+    %br.clear
+
   #Grid
     .row-fluid{:style => "margin-top: 1em;"}
       %section
         - @results.each do |event|
-          %div{:class => "#{['talk', 'mix', 'span4', 'well', 'medium', 'single_spaced'] * ' '}", :data => {:name => event.name, :date => event.start_date.to_s(:concise)}}
+          %div{:class => "#{(['talk', 'mix', 'span4', 'well', 'medium', 'single_spaced'] | event.tags) * ' '}", :data => {:name => event.name, :date => event.start_date.to_s(:concise)}}
             = formatted_event(event)
+            .controls.reveal-on-mouseover
+              = link_to "#", :class => 'btn btn-mini' do
+                %i.icon-eye-open
+              = link_to "#", :class => 'btn btn-mini' do
+                %i.icon-edit
+              = link_to "#", :class => 'btn btn-mini' do
+                %i.icon-bullhorn
 
   %br.clear
 

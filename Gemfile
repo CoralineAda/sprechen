@@ -4,6 +4,7 @@ gem 'rails'
 
 gem 'dotenv'
 gem 'bson_ext'
+gem 'geocoder'
 gem 'haml'
 gem 'httparty'
 gem 'jquery-rails'

@@ -19,7 +19,8 @@ module ApplicationHelper
   def formatted_event(event)
     %{
       <h4><a href="#{event.url}" target="_new">#{event.name}</a></h4>
-      <blockquote>#{event.sanitized_summary.truncate(250)}</blockquote>
+      <p>#{event.sanitized_location}</p>
+      <p>#{event.start_date.to_s(:concise)} - #{event.end_date.to_s(:concise)}</p>
     }.html_safe
   end
 

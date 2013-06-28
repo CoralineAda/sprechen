@@ -1,7 +1,10 @@
+require "geocoder/models/mongoid"
+
 class Conferences::Event
 
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Geocoder::Model::Mongoid
 
   field :name
   field :summary
@@ -9,8 +12,32 @@ class Conferences::Event
   field :url
   field :start_date,  :type => Date
   field :end_date,    :type => Date
+  field :coordinates, :type => Array
+  field :address
+  field :city
+  field :state
+  field :country
+
+  reverse_geocoded_by :coordinates do |obj, results|
+    if geo = results.first
+      obj.city    = geo.city
+      obj.state   = geo.state
+      obj.country = geo.country
+    end
+  end
+
+  before_create :reverse_geocode
 
   has_many :proposals
+  has_and_belongs_to_many :searches, :class_name => "Conferences::Search"
+
+  def self.future
+    where(:start_date.gte => Date.today)# + 1.month)
+  end
+
+  def self.sorted
+    asc(:start_date)
+  end
 
   def self.from(ics)
     return [] unless ics
@@ -33,8 +60,16 @@ class Conferences::Event
     self[:end_date] || self.start_date || Date.today
   end
 
+  def sanitized_location
+    [self.city, self.state, self.country].compact.join(', ')
+  end
+
   def sanitized_summary
     self.summary.split("\\n")[0].gsub('\\','')
+  end
+
+  def tags
+    [self.country, self.start_date.year.to_s].compact
   end
 
 end

@@ -4,10 +4,18 @@ class Conferences::Search
 
   field :keyword
 
+  has_and_belongs_to_many :events, :class_name => "Conferences::Event"
+
   ROOT_URL = "http://lanyrd.com/topics/"
 
+  after_create :get_events
+
   def results
-    @results ||= Conferences::Event.from(HTTParty.get(url)).sort{|a,b| a.name <=> b.name}
+    self.events.future.sorted
+  end
+
+  def get_events
+    self.events = Conferences::Event.from(HTTParty.get(url))
   end
 
   def prepared(keyword)

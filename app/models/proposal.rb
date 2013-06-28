@@ -7,7 +7,7 @@ class Proposal
   field :accepted,          :type => Boolean
   field :status_updated_at, :type => Date
 
-  belongs_to :conference
+  belongs_to :conference, :class_name => 'Conferences::Conference'
   belongs_to :talk
   belongs_to :user
   has_one :bio

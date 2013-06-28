@@ -34,9 +34,13 @@ class IcsParser
     parse_attr('dtend')
   end
 
+  def coordinates
+    parse_attr('geo').split(";").map{|c| c.to_f}.reverse
+  end
+
   def parse_attr(attr)
     match = self.event.select{|l| l =~ /^#{attr}/i}.first.to_s.split(':')[1..-1] || []
-    match.join('')
+    match.join('').force_encoding('utf-8')
   end
 
   def parse!
@@ -46,7 +50,8 @@ class IcsParser
       :location => location,
       :url => url,
       :start_date => Date.parse(start_date.to_s),
-      :end_date => Date.parse(end_date.to_s)
+      :end_date => Date.parse(end_date.to_s),
+      :coordinates => coordinates
     }
   end
 

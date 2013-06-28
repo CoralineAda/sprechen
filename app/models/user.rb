@@ -11,7 +11,7 @@ class User
   field :is_admin, :type => Boolean, :default => false
 
   has_many :bios
-  has_many :conferences
+  has_many :conferences, :class_name => 'Conferences::Conference'
   has_many :proposals
   has_many :talks
 
