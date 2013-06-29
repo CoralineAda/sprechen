@@ -1,6 +1,6 @@
 $(".clickable").click ->
   url = $(this).data('url')
-  alert(url)
+  window.location = url
 
 $(".closable").click ->
   $(this).fadeOut();
