@@ -12,3 +12,4 @@ A resource for active conference speakers that helps manage bios, talks, proposa
 * Upload ICS to create event
 * UI for creating proposal
 * Validations / required fields
+* Scheduled job to update topics

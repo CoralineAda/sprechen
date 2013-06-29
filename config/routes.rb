@@ -4,6 +4,8 @@ Sprechen::Application.routes.draw do
 
   match '/sign_out' => "sessions#destroy", :as => 'sign_out'
 
+  resources :topics
+
   namespace :conferences do
     resources :search, :only => [:new, :create, :show], :controller => "search"
     resources :events

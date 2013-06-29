@@ -1,5 +1,7 @@
 class Conferences::SearchController < ApplicationController
 
+  autocomplete :topic, :name
+
   def new
   end
 

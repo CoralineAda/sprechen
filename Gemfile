@@ -9,13 +9,15 @@ gem 'haml'
 gem 'httparty'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-datatables-rails'
 gem "mongo_session_store-rails3"
 gem 'mongoid'
+gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
-gem 'jquery-datatables-rails'
+gem 'rails3-jquery-autocomplete'
 gem "twitter-bootstrap-rails", ">= 2.2.7"
 
 group :assets do
@@ -30,6 +32,7 @@ group :development do
   gem 'unicorn'
   gem 'hpricot'
   gem 'ruby_parser'
+  gem 'rack-mini-profiler'
 end
 
 group :test do
