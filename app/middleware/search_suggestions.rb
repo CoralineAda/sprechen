@@ -14,7 +14,7 @@ class SearchSuggestions
   end
 
   def terms(env)
-    Topic.terms_for(Rack::Request.new(env).params['term'])
+    Conference::Topic.terms_for(Rack::Request.new(env).params['term'])
   end
 
 end

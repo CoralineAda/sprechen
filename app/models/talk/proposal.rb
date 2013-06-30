@@ -1,4 +1,4 @@
-class Proposal
+class Talk::Proposal
 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -7,11 +7,11 @@ class Proposal
   field :accepted,          :type => Boolean
   field :status_updated_at, :type => Date
 
-  belongs_to :conference, :class_name => 'Conferences::Conference'
-  belongs_to :talk
+  belongs_to :conference, :class_name => 'Conference::Conference'
+  belongs_to :talk, :class_name => 'Talk::Talk'
   belongs_to :user
-  has_one :bio
-  has_one :abstract
+  has_one :bio, :class_name => 'Speaker::Bio'
+  has_one :abstract, :class_name => 'Talk::Abstract'
 
   scope :accepted,  where(:accepted => true)
   scope :rejected,  where(:accepted => false)

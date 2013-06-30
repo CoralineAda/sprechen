@@ -1,6 +1,6 @@
 require "geocoder/models/mongoid"
 
-class Conferences::Event
+class Conference::Event
 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -29,7 +29,7 @@ class Conferences::Event
   before_create :reverse_geocode
 
   has_many :proposals
-  has_and_belongs_to_many :searches, :class_name => "Conferences::Search"
+  has_and_belongs_to_many :searches, :class_name => "Conference::Search"
 
   def self.future
     where(:start_date.gte => Date.today)# + 1.month)

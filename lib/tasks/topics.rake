@@ -4,7 +4,7 @@ namespace :topics do
   task :load => :environment do
     scraper = TopicScraper.new(:root_sitemap => "http://lanyrd.com/sitemap.xml" )
     scraper.topics.each do |topic|
-      Topic.where(:name => topic).empty? && Topic.create(:name => topic)
+      Conference::Topic.where(:name => topic).empty? && Conference::Topic.create(:name => topic)
     end
   end
 

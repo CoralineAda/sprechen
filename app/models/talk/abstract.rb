@@ -1,4 +1,4 @@
-class Abstract
+class Talk::Abstract
 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -6,8 +6,8 @@ class Abstract
   field :summary
   field :full_text
 
-  belongs_to :proposal
-  belongs_to :talk
+  belongs_to :proposal, :class_name => 'Talk::Proposal'
+  belongs_to :talk, :class_name => 'Talk::Talk'
 
   def summary
     self[:summary].present? && self[:summary] || self.full_text.to_s.truncate(200)

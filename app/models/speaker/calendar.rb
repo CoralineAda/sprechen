@@ -1,0 +1,3 @@
+class Speaker::Calendar
+
+end

@@ -10,10 +10,10 @@ class User
   field :avatar_url
   field :is_admin, :type => Boolean, :default => false
 
-  has_many :bios
-  has_many :conferences, :class_name => 'Conferences::Conference'
-  has_many :proposals
-  has_many :talks
+  has_many :bios, :class_name => 'Speaker::Bio'
+  has_many :conferences, :class_name => 'Conference::Conference'
+  has_many :proposals, :class_name => 'Talk::Proposal'
+  has_many :talks, :class_name => 'Talk::Talk'
 
   # Class methods ==============================================================
 

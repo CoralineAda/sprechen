@@ -1,8 +1,8 @@
 module ApplicationHelper
 
   def formatted_bio(bio)
-    text = "<em>#{bio.label}</em><br />"
-    text << bio.content.to_s
+    text = "<h4>#{bio.label}</h4>"
+    text << "<p>#{bio.content.to_s.truncate(150)}</p>"
     text.html_safe
   end
 

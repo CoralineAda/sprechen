@@ -1,4 +1,4 @@
-class Conferences::Conference
+class Conference::Conference
 
   include Mongoid::Document
   include Mongoid::Timestamps

@@ -1,4 +1,4 @@
-class Dashboard
+class Speaker::Dashboard
 
   attr_accessor :user_id
 
@@ -19,7 +19,6 @@ class Dashboard
   end
 
   def user
-    self.user_id
     @user ||= User.find(self.user_id)
   end
 

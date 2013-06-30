@@ -1,22 +1,32 @@
-.row-fluid
-  .span12
+%h2.bordered Your Bios
 
-    .bubble.span6
-      %h2
-        Introducing You.
-      %p
-        If you had to describe yourself in 200 words or less, what would you say? Well, that obviously depends on who you're talking to-- that's why we're set up to let you create as many bios as you want to. When it comes time to submit your talk proposal, you can pick the bio that best suits the occasion.
-      .left_speech
-    .span6
-      - if @bios.empty?
-        %h2.bordered Add a Bio
-      - else
-        - @bios.each do |bio|
-          .clickable.well.short.single_spaced{:data => {:url => "#{edit_speaker_bio_path(current_user.slug, bio)}"}}
-            - if bio.photo
-              .pull-right
-                = image_tag bio.photo, :class => :avatar
-            = formatted_bio(bio).html_safe
-      %a.pull-right.btn.btn-inverse{:href => "#{new_speaker_bio_path(current_user.slug)}"}
-        %i.icon-user
-        Add a Bio
+- if current_user.bios.count < 2
+
+  .row-fluid
+    .span12
+      .bubble.closable
+        .pull-right.minus-top-margin
+          %a.close
+            &times;
+        %h2
+          Introducing You.
+        %p
+          If you had to describe yourself in 200 words or less, what would you say? Well, that obviously depends on who you're talking to-- that's why we're set up to let you create as many bios as you want to. When it comes time to submit your talk proposal, you can pick the bio that best suits the occasion.
+        .left_speech
+
+.row-fluid{:style => "margin-top: 1em;"}
+  %section
+    - @bios.each do |bio|
+      %div.talk.mix.span4.well.medium.single_spaced
+        = formatted_bio(bio)
+        .controls.reveal-on-mouseover
+          = link_to speaker_bio_path(current_user.slug, bio), :class => 'btn btn-mini' do
+            %i.icon-eye-open
+          = link_to edit_speaker_bio_path(current_user.slug, bio), :class => 'btn btn-mini' do
+            %i.icon-edit
+
+%br.clear
+%a.btn.btn-inverse{:href => "#{new_speaker_bio_path(current_user.slug)}"}
+  %i.icon-user
+    %sup +
+  Add a Bio

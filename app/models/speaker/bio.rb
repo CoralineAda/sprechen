@@ -1,4 +1,4 @@
-class Bio
+class Speaker::Bio
 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -8,6 +8,6 @@ class Bio
   field :photo
 
   belongs_to :user
-  belongs_to :proposal
+  belongs_to :proposal, :class_name => 'Talk::Proposal'
 
 end

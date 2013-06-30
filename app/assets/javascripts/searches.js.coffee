@@ -1,3 +1,3 @@
 jQuery ->
-  $('#conferences_search_keyword').autocomplete
+  $('#conference_search_topic').autocomplete
     source: "/topics"

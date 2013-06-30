@@ -1,4 +1,4 @@
-class Conferences::SearchController < ApplicationController
+class Conference::SearchController < ApplicationController
 
   autocomplete :topic, :name
 
@@ -6,7 +6,7 @@ class Conferences::SearchController < ApplicationController
   end
 
   def create
-    @search = Conferences::Search.create(params[:conferences_search])
+    @search = Conference::Search.create(params[:conference_search])
     @results = @search.results
     render :show
   end

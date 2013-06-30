@@ -1,0 +1,6 @@
+= form_for(Conference::Search.new(params[:conferences_search]), :url => '/conferences/search', :html => {:class => 'form form-inline'} ) do |f|
+  .input-prepend{:style => 'color: #000000;'}
+    %span.add-on
+      %i.icon-search.icon-black
+    = f.text_field :topic, :placeholder => 'Enter a topic'
+  = f.submit "Search", :class => 'btn btn-primary'

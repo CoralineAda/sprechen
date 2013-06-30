@@ -1,4 +1,4 @@
-class Topic
+class Conference::Topic
 
   include Mongoid::Document
 

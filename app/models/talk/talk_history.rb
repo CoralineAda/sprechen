@@ -7,7 +7,7 @@ class TalkHistory
   end
 
   def talk
-    @talk ||= Talk.find(self.talk_id)
+    @talk ||= Talk::Talk.find(self.talk_id)
   end
 
   def events

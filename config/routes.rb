@@ -12,6 +12,7 @@ Sprechen::Application.routes.draw do
   end
 
   namespace :speaker, :path => 'speaker/:user/' do
+    resource :calendar
     resource :dashboard
     resources :bios
     resources :talks

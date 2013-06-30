@@ -1,4 +1,4 @@
-class Talk
+class Talk::Talk
 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -8,15 +8,15 @@ class Talk
   field :archived, :type => Boolean, :default => false
 
   belongs_to  :user
-  has_many  :proposals
-  has_many  :abstracts
+  has_many  :proposals, :class_name => 'Talk::Proposal'
+  has_many  :abstracts, :class_name => 'Talk::Abstract'
 
   def has_details?
     self.deck_location || self.abstracts.first
   end
 
   def history
-    TalkHistory.new(self.id)
+    Talk::TalkHistory.new(self.id)
   end
 
   def recently_created?

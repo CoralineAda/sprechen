@@ -1,16 +1,17 @@
 .well.form
   = f.hidden_field :user_id, :value => current_user.id
   .span4
-    = f.label :label
+    = f.label "Alias"
     = f.text_field :label
     = f.label :photo, "Photo URL"
     = f.text_field :photo
   .span4
     = f.label :content
-    = f.text_area :content, :style => 'width: 100%; height: 6em;'
+    = f.text_area :content, :style => 'width: 100%; height: 16em;'
   - if @bio.photo.present?
     .span3.pull-right
-      = image_tag @bio.photo, :style => 'width: 90%;'
+      %label Photo
+      = image_tag @bio.photo, :style => 'width: 90%;', :class => 'framed'
 
   %br.clear
 = f.submit "Save", :class => 'btn btn-primary'

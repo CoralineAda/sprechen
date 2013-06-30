@@ -2,7 +2,7 @@ class Speaker::BiosController < ApplicationController
 
   include ScopesAndPersistsModel
 
-  scopes_and_persists :bio
+  scopes_and_persists :bio, :class_name => 'Speaker::Bio'
 
   def index
     @bios = current_user.bios.all
@@ -13,6 +13,9 @@ class Speaker::BiosController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def destroy
