@@ -1,9 +1,4 @@
-%a.pull-right.btn.btn-inverse{:href => "#{new_speaker_talk_path(current_user.slug)}", :style => 'margin-top: 1em;'}
-  %i.icon-user
-  Add a Talk
-
-%h2.bordered
-  Your Talks
+- content_for(:title, "Your Talks")
 
 - if @talks.count < 2
 
@@ -50,6 +45,12 @@
               %i.icon-bullhorn
 
 %br.clear
+
+%a.btn.btn-inverse{:href => "#{new_speaker_talk_path(current_user.slug)}", :style => 'margin-top: 1em;'}
+  %i.icon-comment
+    %sup +
+  Add a Talk
+
 
 = content_for :javascript do
   $(function(){ $('#Grid').mixitup({showOnLoad: 'mix', sortOnLoad: 'data-name', multiFilter: false, filterLogic: 'and'}); });

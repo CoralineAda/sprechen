@@ -1,5 +1,4 @@
-%h2.bordered
-  = @bio.label
+= content_for(:title, "Your Bios: #{@bio.label}")
 
 .row-fluid
   .span9.well
@@ -20,4 +19,3 @@
 .pull-right
   = link_to speaker_bio_path(current_user.slug, @bio), :method => :delete, :class => 'btn btn-danger', :confirm => 'Are you sure?' do
     %i.icon-trash
-    Delete

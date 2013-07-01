@@ -2,7 +2,7 @@ class Speaker::TalksController < ApplicationController
 
   include ScopesAndPersistsModel
 
-  scopes_and_persists :talk
+  scopes_and_persists :talk, :class_name => "Talk::Talk"
 
   before_filter :scope_abstract, :only => [:new, :edit, :create, :update]
 
@@ -15,6 +15,9 @@ class Speaker::TalksController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def destroy
@@ -30,7 +33,7 @@ class Speaker::TalksController < ApplicationController
 
   def update
     handle_errors_on(:edit)
-    @abstract.update_attributes(params[:abstract])
+    @abstract.update_attributes(params[:talk_abstract])
     redirect_to(speaker_talks_path(current_user.slug))
   end
 
@@ -38,8 +41,8 @@ class Speaker::TalksController < ApplicationController
 
   def scope_abstract
     @abstract = @talk.abstracts.first
-    @abstract ||= params[:abstract].present? && params[:abstract][:id].present? && @talk.abstracts.where(params[:abstract][:id]).first
-    @abstract ||= @talk.abstracts.build(params[:abstract])
+    @abstract ||= params[:talk_abstract].present? && params[:talk_abstract][:id].present? && @talk.abstracts.where(params[:talk_abstract][:id]).first
+    @abstract ||= @talk.abstracts.build(params[:talk_abstract])
   end
 
 end

@@ -1,4 +1,4 @@
-%h2 Edit a Bio
+= content_for(:title, "Edit a Bio")
 
 = form_for(@bio, :url => speaker_bio_path(current_user.slug, @bio)) do |f|
   = render :partial => 'form', :locals => {:f => f}

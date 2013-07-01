@@ -1,4 +1,4 @@
-class TalkHistory
+class Talk::TalkHistory
 
   attr_reader :talk_id
 

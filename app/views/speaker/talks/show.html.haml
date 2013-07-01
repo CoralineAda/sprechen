@@ -1,15 +1,16 @@
-%h2.bordered
-  = @talk.title
+- content_for(:title, @talk.title)
 
 .row-fluid
   .span8
     = stat_block('Summary', @talk.abstracts.first && @talk.abstracts.first.summary || "None")
-    = stat_block('Uploaded To', link_to(@talk.deck_location, @talk.deck_location)) if @talk.deck_location.present?
     = stat_block('Abstract', @talk.abstracts.first && @talk.abstracts.first.full_text || "None")
+    = stat_block('Uploaded To', link_to(@talk.deck_location, @talk.deck_location)) if @talk.deck_location.present?
     = link_to edit_speaker_talk_path(current_user.slug, @talk.id), :class => 'btn' do
-      %i.icon-comment
+      %i.icon-bullhorn
       Submit This Talk!
-    = link_to "Edit", edit_speaker_talk_path(current_user.slug, @talk.id), :class => 'btn'
+    = link_to edit_speaker_talk_path(current_user.slug, @talk.id), :class => 'btn' do
+      %i.icon-edit
+      Edit
     = link_to "Back", :back, :class => 'btn'
 
     - if @talk.persisted?
