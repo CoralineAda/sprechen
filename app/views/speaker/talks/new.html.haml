@@ -1,4 +1,4 @@
-%h2 Create a Talk
+- content_for(:title, "Add a Talk")
 
 = form_for(@talk, :url => speaker_talks_path(current_user.slug)) do |f|
   = render :partial => 'form', :locals => {:f => f}

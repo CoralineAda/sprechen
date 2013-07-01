@@ -1,4 +1,4 @@
-%h2 Edit a Talk
+- content_for(:title, @talk.title)
 
 = form_for(@talk, :url => speaker_talk_path(current_user.slug, @talk.id)) do |f|
   = render :partial => 'form', :locals => {:f => f}
