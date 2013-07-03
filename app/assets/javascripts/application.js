@@ -17,5 +17,6 @@
 //- require twitter/boostrap
 //= require mixitup/jquery.mixitup.min
 //= require autocomplete-rails
+//= require jasny-bootstrap
 //= require_tree .
 

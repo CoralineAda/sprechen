@@ -3,4 +3,5 @@
     %span.add-on
       %i.icon-search.icon-black
     = f.text_field :topic, :placeholder => 'Enter a topic'
-  = f.submit "Search", :class => 'btn btn-primary'
+  %span.input-append
+    = f.submit "Search", :class => 'btn btn-primary'

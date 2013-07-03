@@ -1,0 +1,12 @@
+= form_for(Conference::Conference.new, :url => conferences_path, :html => {:multipart => true, :class => 'form form-inline'} ) do |f|
+  .fileupload.fileupload-new{:data => {:provides => 'fileupload'}}
+    .uneditable-input
+      %span.fileupload-preview.uneditable
+        iCal (.ics) files only
+    %span.btn.btn-file
+      %span.fileupload-new
+        Select a File
+      %span.fileupload-exists
+        Change File
+      = f.file_field :file
+    = f.submit "Upload", :class => 'btn btn-primary'

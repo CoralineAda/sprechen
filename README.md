@@ -5,7 +5,8 @@ A resource for active conference speakers that helps manage bios, talks, proposa
 
 #### To Do
 
-* Page titles
+* Fix broken search
+* Page titles everywhere
 * Favorite an event to save it to your profile
 * Event show
 * UI for creating event

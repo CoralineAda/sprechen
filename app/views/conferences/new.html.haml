@@ -1,0 +1,18 @@
+- content_for(:title, "Add a Conference")
+
+.row-fluid
+  .span12
+
+    .span6
+      %h3 Search
+      .well
+        = render "/conferences/search/form"
+    .span6
+      %h3 Import
+      .well
+        = render "/conferences/upload"
+
+%h3 Create
+.well
+  If all else fails you can always
+  = link_to "add a conference manually", "#"

@@ -59,6 +59,7 @@ GEM
       multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.1)
+    jasny_bootstrap_extension_rails (0.0.1)
     journey (1.0.4)
     jquery-datatables-rails (1.11.2)
       jquery-rails
@@ -219,6 +220,7 @@ DEPENDENCIES
   haml
   hpricot
   httparty
+  jasny_bootstrap_extension_rails
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails

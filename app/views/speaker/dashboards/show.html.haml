@@ -1,3 +1,5 @@
+- content_for(:title, "#{current_user.first_name}'s Dashboard")
+
 - if current_user.just_getting_started?
   = render 'getting_started'
 - elsif @dashboard.upcoming_conferences.empty?
@@ -9,44 +11,49 @@
   .span12
 
     .span4
-      %h2.bordered Calendar
+      %h3.bordered Prospects
       - if @dashboard.upcoming_conferences.empty?
         .well.single_spaced.short
           You have no upcoming conferences with open RFPs.
-      - @dashboard.upcoming_conferences.each do |conference|
-        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
-          = formatted_conference(conference).html_safe
-          .pull-right
-            %i.icon-search
-      %a.btn.btn-inverse.centered{:href => "#"}
-        %i.icon-calendar
-        Add a Conference
+        %a.btn.btn-inverse.centered{:href => "#{new_conference_path}"}
+          %i.icon-calendar
+            %sup +
+          Add a Conference
+      - else
+        - @dashboard.upcoming_conferences.each do |conference|
+          .well.short.single_spaced
+            = formatted_conference(conference).html_safe
+            .pull-right
+              %i.icon-eye-open
+        %a.btn.btn-inverse.centered{:href => "#"}
+          %i.icon-calendar
+          View Calendar
 
     .span4
-      %h2.bordered Submitted
+      %h3.bordered Submissions
       - if @dashboard.submitted_talks.empty?
         .well.single_spaced.short
           You have no submitted proposals awaiting approval.
       - @dashboard.submitted_talks.each do |proposal|
-        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
+        .well.short.single_spaced
           = formatted_proposal(proposal).html_safe
           .pull-right
-            %i.icon-search
+            %i.icon-eye-open
       %a.btn.btn-inverse{:href => "#"}
-        %i.icon-bullhorn
-        Submit a Proposal
+        %i.icon-inbox
+        View Proposals
 
     .span4
-      %h2.bordered Accepted
+      %h3.bordered Accepted Talks
       - if @dashboard.accepted_talks.empty?
         .well.single_spaced.short
-          You have no accepted proposals for upcoming conferences.
+          You don't have any accepted talks yet.
       - @dashboard.accepted_talks.each do |proposal|
-        .clickable.well.short.single_spaced{:data => {:url => '#foo'}}
+        .well.short.single_spaced
           = formatted_proposal(proposal).html_safe
           .pull-right
-            %i.icon-search
+            %i.icon-eye-open
       %a.btn.btn-inverse{:href => "#"}
         %i.icon-folder-open
-        Review Proposals
+        Review Talks
 

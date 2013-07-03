@@ -6,8 +6,10 @@ Sprechen::Application.routes.draw do
 
   resources :topics
 
-  namespace :conferences do
-    resources :search, :only => [:new, :create, :show], :controller => "search"
+  resources :conferences do
+    collection do
+      resources :search, :only => [:new, :create, :show], :controller => "search"
+    end
   end
 
   namespace :speaker, :path => 'speaker/:user/' do
