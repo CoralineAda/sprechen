@@ -3,7 +3,7 @@
     - if current_user
       = menu_item "Bios", speaker_bios_path(current_user)
       = menu_item "Talks", speaker_talks_path(current_user)
-      = menu_item "Conferences", "#"
+      = menu_item "Conferences", speaker_calendar_path(current_user)
       = menu_item "Proposals", "#"
       = menu_item "Sign Out", sign_out_path
       %li

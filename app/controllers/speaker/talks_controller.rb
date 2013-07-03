@@ -4,6 +4,7 @@ class Speaker::TalksController < ApplicationController
 
   scopes_and_persists :talk, :class_name => "Talk::Talk"
 
+  before_filter :ensure_current_user
   before_filter :scope_abstract, :only => [:new, :edit, :create, :update]
 
   def index

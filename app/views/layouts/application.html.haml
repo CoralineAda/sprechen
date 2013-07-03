@@ -13,7 +13,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title
       = "Sprechen.me 💬 "
-      = content_for?(:title) ? yield(:title) : "Untitled"
+      = content_for?(:title) ? yield(:title) : ""
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
   %body
@@ -34,7 +34,7 @@
           &copy 2012-#{Date.today.year}
           = link_to 'Corey Ehmke.', 'http://bantik.github.com'
           &bull;
-          = link_to 'Fork this project on Github', 'https://github.com/Bantik/sprechen'
+          = link_to 'Contribute to this project on Github', 'https://github.com/Bantik/sprechen'
           &bull;
           = link_to 'GitTips appreciated!', 'https://www.gittip.com/Bantik/'
 

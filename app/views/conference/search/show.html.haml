@@ -25,9 +25,9 @@
   #Grid
     .row-fluid{:style => "margin-top: 1em;"}
       %section
-        - @results.each do |event|
-          %div{:class => "#{(['talk', 'mix', 'span4', 'well', 'medium', 'single_spaced'] | event.tags) * ' '}", :data => {:name => event.name, :date => event.start_date.to_s(:concise)}}
-            = formatted_event(event)
+        - @results.each do |conference|
+          %div{:class => "#{(['talk', 'mix', 'span4', 'well', 'medium', 'single_spaced'] | conference.tags) * ' '}", :data => {:name => conference.name, :date => conference.start_date.to_s(:concise)}}
+            = formatted_conference(conference)
             .controls.reveal-on-mouseover
               = link_to "#", :class => 'btn btn-mini' do
                 %i.icon-heart

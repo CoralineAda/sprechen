@@ -16,11 +16,11 @@ module ApplicationHelper
     text.html_safe
   end
 
-  def formatted_event(event)
+  def formatted_conference(conference)
     %{
-      <h4><a href="#{event.url}" target="_new">#{event.name}</a></h4>
-      <p>#{event.sanitized_location}</p>
-      <p>#{event.start_date.to_s(:concise)} - #{event.end_date.to_s(:concise)}</p>
+      <h4><a href="#{conference.url}" target="_new">#{conference.name}</a></h4>
+      <p>#{conference.sanitized_location}</p>
+      <p>#{conference.start_date.to_s(:concise)} - #{conference.end_date.to_s(:concise)}</p>
     }.html_safe
   end
 

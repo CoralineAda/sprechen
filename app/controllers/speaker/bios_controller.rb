@@ -2,6 +2,7 @@ class Speaker::BiosController < ApplicationController
 
   include ScopesAndPersistsModel
 
+  before_filter :ensure_current_user
   scopes_and_persists :bio, :class_name => 'Speaker::Bio'
 
   def index
