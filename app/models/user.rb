@@ -22,6 +22,7 @@ class User
   end
 
   def self.create_with_omniauth(auth)
+    Rails.logger.info(auth['info'].inspect)
     create! do |user|
       user.provider   = auth['provider']
       user.uid        = auth['uid']

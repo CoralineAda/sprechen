@@ -1,4 +1,4 @@
-- content_for(:title, "#{current_user.first_name}'s Dashboard")
+- content_for(:title, "#{current_user.name}'s Dashboard")
 
 - if current_user.just_getting_started?
   = render 'getting_started'
