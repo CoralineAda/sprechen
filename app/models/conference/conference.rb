@@ -27,7 +27,7 @@ class Conference::Conference
   end
 
   belongs_to :user
-  has_many :proposals
+  has_many :proposals, :class_name => 'Talk::Proposal'
   before_create :reverse_geocode
 
   # Class Methods ==============================================================
@@ -38,7 +38,11 @@ class Conference::Conference
 
   def self.from(ics)
     return [] unless ics
-    IcsParser.entries_from(ics).inject([]){ |a, entry| a << find_or_create(IcsParser.new(entry).parse!)}
+    extracted_entries(ics).inject([]){ |a, entry| a << find_or_create(IcsParser.new(entry).parse!); a}
+  end
+
+  def self.extracted_entries(ics)
+    IcsParser.entries_from(ics)
   end
 
   def self.future

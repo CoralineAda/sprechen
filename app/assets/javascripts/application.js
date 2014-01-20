@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require twitter/bootstrap
-//- require twitter/boostrap
+//= require bootstrap
 //= require mixitup/jquery.mixitup.min
 //= require autocomplete-rails
-//= require jasny-bootstrap
 //= require_tree .
 

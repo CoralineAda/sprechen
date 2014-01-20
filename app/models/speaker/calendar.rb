@@ -6,8 +6,8 @@ class Speaker::Calendar
     self.subscriber = subscriber
   end
 
-  def events
-    subscriber.events.asc(:start_date)
+  def conferences
+    subscriber.conferences.asc(:start_date)
   end
 
 end

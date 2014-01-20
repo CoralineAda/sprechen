@@ -6,7 +6,7 @@ class SearchController < ApplicationController
   end
 
   def create
-    @search = Conference::Search.create(params[:search])
+    @search = Conference::Search.create(params[:conference_search])
     @results = @search.results
     render :show
   end

@@ -9,10 +9,10 @@
   %p
     - if @calendar.conferences.present?
       All of your favorited conferences are listed below. Looking for a new venue? You should
-      = link_to "search for upcoming conferences", new_conferences_search_path
+      = link_to "search for upcoming conferences", new_search_path
       = "."
     - else
       You need to favorite some conferences! You should
-      = link_to "search for upcoming conferences", new_conferences_search_path
+      = link_to "search for upcoming conferences", new_search_path
       = "."
   .left_speech

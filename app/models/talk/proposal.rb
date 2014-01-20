@@ -13,9 +13,9 @@ class Talk::Proposal
   has_one :bio, :class_name => 'Speaker::Bio'
   has_one :abstract, :class_name => 'Talk::Abstract'
 
-  scope :accepted,  where(:accepted => true)
-  scope :rejected,  where(:accepted => false)
-  scope :submitted, excludes(:submitted_at => nil)
+  scope :accepted,  -> { where(:accepted => true) }
+  scope :rejected,  -> { where(:accepted => false) }
+  scope :submitted, -> { excludes(:submitted_at => nil) }
 
   def self.awaiting_approval
     submitted.where(:accepted => nil)

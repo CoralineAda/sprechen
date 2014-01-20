@@ -6,10 +6,9 @@
  *= require jquery.ui.all
  *= require functions
  *= require variables
- *= require jasny-bootstrap
- *= require jasny-bootstrap-responsive
+ *= require elements
+ *= require grid
  *= require_tree .
 */
 
-@import "elements.less";
-@import "grid.less";
+@import "bootstrap";

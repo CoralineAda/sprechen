@@ -26,7 +26,7 @@ class User
       user.provider   = auth['provider']
       user.uid        = auth['uid']
       user.name       = auth['info']['name']
-      user.avatar     = auth['info']['image']
+      user.avatar_url = auth['info']['image']
     end
   end
 
